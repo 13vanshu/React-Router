@@ -1,0 +1,63 @@
+.error-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.error-code {
+  font-size: 6rem;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.error-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.error-text {
+  color: #555;
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+.error-btn {
+  padding: 12px 25px;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* 📱 Tablet */
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 4.5rem;
+  }
+
+  .error-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* 📱 Mobile */
+@media (max-width: 480px) {
+  .error-code {
+    font-size: 3.5rem;
+  }
+
+  .error-title {
+    font-size: 1.3rem;
+  }
+
+  .error-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

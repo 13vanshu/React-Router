@@ -1,81 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "./Nav.css";
 
 const Nav = () => {
-  return (
-    <nav style={styles.nav}>
-      <h2 style={styles.logo}>VANSHAURA TECH</h2>
+  const [open, setOpen] = useState(false);
 
-      <ul style={styles.menu}>
+  return (
+    <nav className="nav">
+      <h2 className="logo">VANSHAURA TECH</h2>
+
+      {/* Hamburger */}
+      <div className="hamburger" onClick={() => setOpen(!open)}>
+        {open ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {/* Menu */}
+      <ul className={`menu ${open ? "active" : ""}`}>
         <li>
-          <NavLink
-            to="/"
-            style={({ isActive }) =>
-              isActive ? styles.activeLink : styles.link
-            }
-          >
+          <NavLink to="/" onClick={() => setOpen(false)}>
             Home
           </NavLink>
         </li>
-
         <li>
-          <NavLink
-            to="/About"
-            style={({ isActive }) =>
-              isActive ? styles.activeLink : styles.link
-            }
-          >
+          <NavLink to="/About" onClick={() => setOpen(false)}>
             About
           </NavLink>
         </li>
-
         <li>
-          <NavLink
-            to="/Contact"
-            style={({ isActive }) =>
-              isActive ? styles.activeLink : styles.link
-            }
-          >
+          <NavLink to="/Contact" onClick={() => setOpen(false)}>
             Contact
           </NavLink>
         </li>
       </ul>
     </nav>
   );
-};
-
-const styles = {
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "15px 30px",
-    background: "#0f172a",
-    fontSize: "2rem",
-  },
-  logo: {
-    color: "#fff",
-    margin: 0,
-  },
-  menu: {
-    listStyle: "none",
-    display: "flex",
-    gap: "20px",
-    margin: 0,
-    padding: 0,
-  },
-  link: {
-    color: "#cbd5f5",
-    textDecoration: "none",
-    fontSize: "1.5rem",
-  },
-  activeLink: {
-    textDecoration: "none",
-    color: "#fff",
-    borderBottom: "2px solid #38bdf8",
-    paddingBottom: "4px",
-    fontSize: "1.5rem",
-  },
 };
 
 export default Nav;

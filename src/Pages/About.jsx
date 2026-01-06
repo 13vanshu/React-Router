@@ -1,20 +1,20 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import "./About.css";
 
 const About = () => {
   return (
-    <div style={styles.container}>
+    <div className="about-container">
       {/* Header */}
-      <section style={styles.header}>
-        <h1 style={styles.title}>About Us</h1>
-        <p style={styles.subtitle}>
+      <section className="about-header">
+        <h1 className="about-title">About Us</h1>
+        <p className="about-subtitle">
           We build modern, scalable, and user-friendly React applications.
         </p>
       </section>
 
       {/* Content */}
-      <section style={styles.content}>
-        <div style={styles.card}>
+      <section className="about-content">
+        <div className="about-card">
           <h3>🚀 Our Mission</h3>
           <p>
             To create high-quality web applications that are fast, responsive,
@@ -22,7 +22,7 @@ const About = () => {
           </p>
         </div>
 
-        <div style={styles.card}>
+        <div className="about-card">
           <h3>💡 What We Do</h3>
           <p>
             We specialize in React, JavaScript, REST APIs, and clean UI design
@@ -30,7 +30,7 @@ const About = () => {
           </p>
         </div>
 
-        <div style={styles.card}>
+        <div className="about-card">
           <h3>🤝 Why Choose Us</h3>
           <p>
             Clean code, scalable architecture, and a strong focus on user
@@ -38,39 +38,8 @@ const About = () => {
           </p>
         </div>
       </section>
-
     </div>
   );
-};
-
-const styles = {
-  container: {
-    fontFamily: "Arial, sans-serif",
-    padding: "40px 20px",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "50px",
-  },
-  title: {
-    fontSize: "2.5rem",
-    marginBottom: "10px",
-  },
-  subtitle: {
-    fontSize: "1.1rem",
-    color: "#555",
-  },
-  content: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "20px",
-  },
-  card: {
-    padding: "25px",
-    border: "1px solid #eee",
-    borderRadius: "10px",
-    background: "#fafafa",
-  },
 };
 
 export default About;

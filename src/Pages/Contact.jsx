@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,17 +20,17 @@ const Contact = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <div className="contact-container">
       {/* Header */}
-      <div style={styles.header}>
-        <h1 style={styles.title}>Contact Us</h1>
-        <p style={styles.subtitle}>
+      <div className="contact-header">
+        <h1 className="contact-title">Contact Us</h1>
+        <p className="contact-subtitle">
           Have a question or want to work together? Let’s talk.
         </p>
       </div>
 
       {/* Form */}
-      <form style={styles.form} onSubmit={handleSubmit}>
+      <form className="contact-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
@@ -37,7 +38,6 @@ const Contact = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          style={styles.input}
         />
 
         <input
@@ -47,7 +47,6 @@ const Contact = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          style={styles.input}
         />
 
         <textarea
@@ -57,46 +56,20 @@ const Contact = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          style={styles.textarea}
         />
 
-        <button type="submit" style={styles.button}>
-          Send Message
-        </button>
+        <button type="submit">Send Message</button>
       </form>
 
       {/* Contact navigation */}
-      <div style={styles.nav}>
-        <NavLink
-          to="email"
-          style={({ isActive }) =>
-            isActive ? styles.activeLink : styles.link
-          }
-        >
-          Email
-        </NavLink>
-
-        <NavLink
-          to="phone"
-          style={({ isActive }) =>
-            isActive ? styles.activeLink : styles.link
-          }
-        >
-          Phone
-        </NavLink>
-
-        <NavLink
-          to="address"
-          style={({ isActive }) =>
-            isActive ? styles.activeLink : styles.link
-          }
-        >
-          Address
-        </NavLink>
+      <div className="contact-nav">
+        <NavLink to="email">Email</NavLink>
+        <NavLink to="phone">Phone</NavLink>
+        <NavLink to="address">Address</NavLink>
       </div>
 
       {/* Nested route output */}
-      <div style={styles.childContent}>
+      <div className="contact-child">
         <Outlet />
       </div>
     </div>
@@ -104,74 +77,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-const styles = {
-  container: {
-    maxWidth: "600px",
-    margin: "40px auto",
-    padding: "20px",
-    fontFamily: "Arial, sans-serif",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "30px",
-  },
-  title: {
-    fontSize: "2.3rem",
-    marginBottom: "10px",
-  },
-  subtitle: {
-    color: "#555",
-    fontSize: "1rem",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "15px",
-  },
-  input: {
-    padding: "12px",
-    fontSize: "1rem",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    outline: "none",
-  },
-  textarea: {
-    padding: "12px",
-    fontSize: "1rem",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    outline: "none",
-  },
-  button: {
-    padding: "12px",
-    backgroundColor: "#2563eb",
-    color: "#fff",
-    fontSize: "1rem",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-  },
-  nav: {
-    marginTop: "30px",
-    display: "flex",
-    justifyContent: "center",
-    gap: "20px",
-  },
-  link: {
-    textDecoration: "none",
-    color: "#2563eb",
-    fontWeight: "500",
-  },
-  activeLink: {
-    textDecoration: "none",
-    color: "#2563eb",
-    fontWeight: "700",
-    borderBottom: "2px solid #2563eb",
-  },
-  childContent: {
-    marginTop: "20px",
-    textAlign: "center",
-    fontSize: "1rem",
-  },
-};
